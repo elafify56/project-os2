@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app 
+spec:
+  selector:
+    matchLabels:
+      app: my-web-app
+      
+  replicas: 3
+  template:
+    metadata:
+      name: my-web-app
+      labels:
+        app: my-web-app
+    spec:
+      containers:
+        - image: elafify/nginx-test
+          name: custom-image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

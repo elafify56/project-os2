@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-web-app
+  labels:
+    app: dp
+spec:
+  containers:
+    - image: elafify/nginx-test
+      name: my-nginx-app
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+      
